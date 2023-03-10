@@ -19,17 +19,17 @@
 # button guide 
 ### home page (media controls)
 <img src='https://i.imgur.com/oyT0ONs.png'>
-1. skip back
-2. pause
-3. skip forward
-4. volume down
-5. volume mute
-6. volume up
-7. disable/enable background image
-8. make youtube fullscreen (requires window to be maximized)
-9. go to mouse control page
-10. go to keyboard control page
-11. go home (does nothing on this page)
+1.  skip back
+2.  pause
+3.  skip forward
+4.  volume down
+5.  volume mute
+6.  volume up
+7.  disable/enable background image
+8.  make youtube fullscreen (requires window to be maximized)
+9.  go to mouse control page
+10.  go to keyboard control page
+11.  go home (does nothing on this page)
 
 ### mouse control
 <img src='https://i.imgur.com/P98Arfx.png'>
