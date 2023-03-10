@@ -1,0 +1,37 @@
+<html> 
+    <head>
+        <title>p-mote keyboard</title>
+        <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+    <body>
+        <div class="center button_container button_row b_box">
+                <input class="stylized_textbox" type="text" id="input_textbox"><br>
+                <button class="media_button enter_arrow make_tiny" style="margin-right: 28px;" onclick="send_text()"></button>
+        </div>
+        <div class="button_toolbar bottom_right">
+            <button class="media_button mouse make_tiny" onclick="window.location.href='/mouse'"></button>
+            <button class="media_button home make_tiny" onclick="window.location.href='/'"></button>
+        </div>
+    </body> 
+</html> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    const step_jump = 10
+
+    function send_request(request) {
+        $.ajax({
+            type: "GET",
+            url: '/'+request
+        });
+    }
+    function send_text() {
+        var text = document.getElementById("input_textbox").value;
+        console.log(text)
+        request = 'send_text/' + text
+        $.ajax({
+            type: "GET",
+            url: '/'+request
+        });
+    }
+</script>

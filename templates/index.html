@@ -1,0 +1,56 @@
+<html> 
+    <head>
+        <title>p-mote mouse</title>
+        <link rel="stylesheet" href="/static/css/main.css">
+        <script defer>
+            var bg_state = "1";
+        </script>
+    </head>
+    <body> 
+        <div class="" id="cover_div">
+            <div class="center button_container">
+                <div class="button_row">
+                    <button class="media_button skip_back" onclick="send_request('skip_back')"></button>
+                    <button class="media_button play_pause" onclick="send_request('play_pause')"></button>
+                    <button class="media_button skip_forward" onclick="send_request('skip_forward')"></button>
+                </div>
+                <div class="button_row">
+                    <button class="media_button vol_down" onclick="send_request('vol_down')"></button>
+                    <button class="media_button vol_mute" onclick="send_request('vol_mute')"></button>
+                    <button class="media_button vol_up" onclick="send_request('vol_up')"></button>
+                </div>
+            </div>
+            <div class="button_toolbar bottom_right">
+                <button class="media_button no_picture make_tiny" onclick="no_picture()"></button>
+                <button class="media_button fullscreen make_tiny" onclick="send_request('youtube_fullscreen')"></button>
+                <button class="media_button mouse make_tiny" onclick="window.location.href='/mouse'"></button>
+                <button class="media_button keyboard make_tiny" onclick="window.location.href='/keyboard'"></button>
+                <button class="media_button home make_tiny" onclick="window.location.href='/'"></button>
+            </div>
+        </div>
+        </body> 
+    </html> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function send_request(request) {
+        $.ajax({
+            type: "GET",
+            url: '/'+request
+        });
+    }
+    function no_picture() {
+        console.log(bg_state)
+        if (bg_state == 0) {
+            document.body.style.backgroundImage = "none";
+            document.getElementById('cover_div').classList.remove('cover_div')
+            bg_state = 1
+        }
+        else if (bg_state == 1) {
+            let number = Math.floor(Math.random() * (100 - 0) + 0);
+            document.body.style.backgroundImage = "url('https://picsum.photos/768/?blur=3?"+number.toString()+"')"
+            document.getElementById('cover_div').classList.add('cover_div')
+            bg_state = 0
+        }
+    }
+</script>

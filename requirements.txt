@@ -1,0 +1,8 @@
+Flask==2.2.3
+Pillow==9.4.0
+PyAutoGUI==0.9.53
+pystray==0.19.4
+pypiwin32
+requests
+waitress==2.1.2
+plyer==2.1.0

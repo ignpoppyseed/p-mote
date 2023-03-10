@@ -1,0 +1,90 @@
+<html> 
+    <head>
+        <title>p-mote mouse</title>
+        <link rel="stylesheet" href="/static/css/main.css">
+        <script defer>
+            const default_click_step = 10
+            var click_step = default_click_step;
+        </script>
+    </head>
+    <body>
+        <div class="center button_container">
+            <div class="button_row">
+                <button class="media_button mouse_click_left" onclick="send_request('mouse_click/left/1')"></button>
+                <button class="media_button mouse_button mouse_up" onclick="send_request('mouse_control/up/'+click_step.toString())"></button>
+                <button class="media_button mouse_click_right" onclick="send_request('mouse_click/right/1')"></button>
+            </div>
+            <div class="button_row">
+                <button class="media_button mouse_button mouse_left" onclick="send_request('mouse_control/left/'+click_step.toString())"></button>
+                <button class="no_button"></button>
+                <button class="media_button mouse_button mouse_right" onclick="send_request('mouse_control/right/'+click_step.toString())"></button>
+            </div>
+            <div class="button_row">
+                <button class="no_button"></button>
+                <button class="media_button mouse_button mouse_down" onclick="send_request('mouse_control/down/'+click_step.toString())"></button>
+                <button class="no_button""></button>
+            </div>
+        </div>
+        <div class="button_toolbar bottom_right">
+            <button class="media_button keyboard make_tiny" onclick="window.location.href='/keyboard'"></button>
+            <button class="media_button home make_tiny" onclick="window.location.href='/'"></button>
+        </div>
+        <div class="step_toolbar bottom_left">
+            <button class="media_button make_tiny plus" id="plus" onclick="increase_step_size()"></button>
+            <button class="media_button make_tiny minus" id="minus" onclick="decrease_step_size()"></button>
+        </div>
+    </body> 
+</html> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    var plus_button = document.getElementById('plus')
+    var minus_button = document.getElementById('minus')
+    const step_jump = 10
+
+    function send_request(request) {
+        $.ajax({
+            type: "GET",
+            url: '/'+request
+        });
+    }
+    function increase_step_size() {
+        click_step += step_jump
+        console.log(click_step)
+    }
+    function decrease_step_size() {
+        if (click_step-step_jump < 10) { window.alert('cant bring click_step below 10'); }
+        else { click_step -= step_jump }
+        console.log(click_step)
+    }
+    function increase_step_size_with_key() {
+        plus_button.style.backgroundColor = 'rgba(255,255,255,.5)'
+        plus_button.classList.add('simulate_clicked_button')
+        click_step += step_jump
+        console.log(click_step)
+        setTimeout(function() {
+            plus_button.classList.remove('simulate_clicked_button')
+            plus_button.style.backgroundColor = 'rgba(0,0,0,0.5)'
+        }, 300);
+    }
+    function decrease_step_size_with_key() {
+        minus_button.style.backgroundColor = 'rgba(255,255,255,.5)'
+        minus_button.classList.add('simulate_clicked_button')
+        if (click_step-step_jump < 10) { window.alert('cant bring click_step below 10'); }
+        else { click_step -= step_jump }
+        console.log(click_step)        
+        setTimeout(function() {
+            minus_button.classList.remove('simulate_clicked_button')
+            minus_button.style.backgroundColor = 'rgba(0,0,0,0.5)'
+        }, 300);
+    }
+    var lastEventTime = 0;
+    document.addEventListener("keydown", function(event) {
+        if (event.keyCode === 38) {send_request('mouse_control/up/'+click_step.toString())}
+        else if (event.keyCode === 40) {send_request('mouse_control/down/'+click_step.toString())}
+        else if (event.keyCode === 37) {send_request('mouse_control/left/'+click_step.toString())}
+        else if (event.keyCode === 39) {send_request('mouse_control/right/'+click_step.toString())}
+        else if (event.key === '+') {increase_step_size_with_key()}
+        else if (event.key === '-') {decrease_step_size_with_key()}
+    });
+</script>

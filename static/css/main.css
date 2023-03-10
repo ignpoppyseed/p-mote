@@ -1,0 +1,166 @@
+body {
+    overflow: hidden;
+    background-color: rgb(25, 25, 25);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0px;
+}
+.media_button {
+    background-size: 150%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 100%;
+    border: 0px solid transparent;
+    width: 90px;
+    aspect-ratio: 1/1;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition: all 0.5s ease;
+    margin: 10px;
+}
+.media_button {
+    background-size: 150%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 100%;
+    border: 0px solid transparent;
+    width: 90px;
+    aspect-ratio: 1/1;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transition: all 0.5s ease;
+    margin: 10px;
+}
+.no_button {
+    background-size: 0%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0);
+    border-radius: 100%;
+    border: 0px solid transparent;
+    width: 90px;
+    aspect-ratio: 1/1;
+    margin: 10px;
+}
+.mouse_button {
+    background-size: 125%;
+}
+.media_button:hover {
+    transform: scale(1.2);
+}
+.simulate_clicked_button {
+    transform: scale(1.2);
+}
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+.bottom_right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.bottom_left {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+.make_tiny {
+    width: 50px;
+    background-size: 125%;
+}
+.stylized_textbox {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    height: 40px;
+    border-radius: calc(50px/2);
+    border: 0px solid transparent;
+    transition: all 0.5s ease;
+    width: 100%;
+    font-size: 25px;
+    font-family: 'Consolas', monospace;
+    margin: 28px;
+}
+.stylized_textbox:focus {
+    outline: none;
+    transform: scale(1.02);
+}
+@media (max-width: 1300px) {
+    .media_button {
+        width: 270px;
+        margin: 28px;
+    }
+    .make_tiny {
+        width: 140px;
+        margin: 14px;
+    }
+    .stylized_textbox {
+        height: 120px;
+        font-size: 70px;
+        margin-left: 28px;
+        border-radius: calc(140px/2);
+    }
+}
+.button_container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.button_toolbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.step_toolbar {
+    display: flex;
+    flex-direction: column;
+}
+.button_row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;
+}
+.cover_div {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    height: 100%;
+    width: 100%;
+}
+.b_box {
+    display: flex;
+	align-items: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.skip_back { background-image: url(/static/images/skip_back.png) }
+.play_pause { background-image: url(/static/images/playpause.png) }
+.skip_forward { background-image: url(/static/images/skip_forward.png) }
+
+.vol_down { background-image: url(/static/images/vol_down.png) }
+.vol_mute { background-image: url(/static/images/vol_mute.png) }
+.vol_up { background-image: url(/static/images/vol_up.png) }
+
+.home { background-image: url(/static/images/home.png) }
+.fullscreen { background-image: url(/static/images/fullscreen.png) }
+.mouse { background-image: url(/static/images/mouse.png) }
+.keyboard { background-image: url(/static/images/keyboard.png) }
+.no_picture { background-image: url(/static/images/no_picture.png) }
+
+.mouse_up { background-image: url(/static/images/mouse_up.png) }
+.mouse_down { background-image: url(/static/images/mouse_down.png) }
+.mouse_left { background-image: url(/static/images/mouse_left.png) }
+.mouse_right { background-image: url(/static/images/mouse_right.png) }
+.mouse_click_left { background-image: url(/static/images/mouse_click_left.png) }
+.mouse_click_right { background-image: url(/static/images/mouse_click_right.png) }
+
+.plus { background-image: url(/static/images/plus.png) }
+.minus { background-image: url(/static/images/minus.png) }
+
+.enter_arrow { background-image: url(/static/images/enter_arrow.png) }
