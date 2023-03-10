@@ -27,6 +27,7 @@
 ### home page (media controls)
 
 <img src='https://i.imgur.com/oyT0ONs.png'>
+
 1. skip back  
 2. pause  
 3. skip forward  
